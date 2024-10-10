@@ -25,7 +25,7 @@ Serial port implementation for Unix.}
 %description %{_description}
 
 %prep
-%autosetup -n %{crate}-%{version} -p1
+%autosetup -n %{name}-%{version} -p1
 %cargo_prep
 
 %generate_buildrequires
