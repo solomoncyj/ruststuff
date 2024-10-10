@@ -4,7 +4,7 @@
 # prevent library files from being installed
 %global cargo_install_lib 0
 
-Name:           serial-unix
+Name:           rust-serial-unix
 Version:        0.4.0
 Release:        %autorelease
 Summary:        Serial port implementation for Unix
