@@ -1,0 +1,19 @@
+--- serial-unix-0.4.0/Cargo.toml	2017-07-02T01:20:06+00:00
++++ serial-unix-0.4.0/Cargo.toml	2024-10-20T09:09:21.266459+00:00
+@@ -7,12 +7,13 @@
+ repository = "https://github.com/dcuddeback/serial-rs"
+ documentation = "https://dcuddeback.github.io/serial-rs/serial-unix/"
+ license = "MIT"
++license-file = "LICENSE"
+ readme = "README.md"
+ keywords = ["serial", "hardware", "system", "RS232"]
+ categories = ["hardware-support", "os", "os::unix-apis"]
+ 
+ [dependencies]
+-serial-core = { version = "0.4", path = "../serial-core" }
++serial-core = "0.4"
+ libc = "0.2.1"
+-termios = "0.2.2"
+-ioctl-rs = "0.1.5"
++termios = ">= 0.2.2"
++ioctl-rs = ">= 0.1.5"

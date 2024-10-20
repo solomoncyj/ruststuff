@@ -1,0 +1,13 @@
+--- serial-0.4.0/Cargo.toml	2017-07-02T01:20:06+00:00
++++ serial-0.4.0/Cargo.toml	2024-10-20T13:59:25.311219+00:00
+@@ -12,8 +12,8 @@
+ categories = ["hardware-support", "os"]
+ 
+ [dependencies]
+-serial-core = { version = "=0.4.0", path = "../serial-core" }
++serial-core = "=0.4.0"
+ 
+ [target.'cfg(unix)'.dependencies]
+-serial-unix = { version = "=0.4.0", path = "../serial-unix" }
++serial-unix = "=0.4.0"
+ 
