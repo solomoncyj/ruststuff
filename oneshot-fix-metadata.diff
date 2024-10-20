@@ -1,0 +1,22 @@
+--- oneshot-0.1.8/Cargo.toml	1970-01-01T00:00:01+00:00
++++ oneshot-0.1.8/Cargo.toml	2024-10-20T11:56:11.840089+00:00
+@@ -16,8 +16,7 @@
+ version = "0.1.8"
+ authors = ["Linus Färnstrand <faern@faern.net>"]
+ description = """
+-Oneshot spsc channel with (potentially) lock-free non-blocking send, and a receiver supporting
+-both thread blocking receive operations as well as Future based async polling.
++Oneshot spsc channel
+ """
+ readme = "README.md"
+ keywords = [
+@@ -42,9 +41,6 @@
+ version = "1"
+ features = ["attributes"]
+ 
+-[dev-dependencies.criterion]
+-version = "0.3"
+-
+ [dev-dependencies.tokio]
+ version = "1"
+ features = [

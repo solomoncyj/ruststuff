@@ -7,20 +7,20 @@
 Name:           rust-oneshot
 Version:        0.1.8
 Release:        %autorelease
-Summary:        Spsc channel with
+Summary:        Spsc channel
 
 License:        MIT OR Apache-2.0
 URL:            https://crates.io/crates/oneshot
 Source:         %{crates_source}
 # Automatically generated patch to strip dependencies and normalize metadata
 Patch:          oneshot-fix-metadata-auto.diff
+# Manually created patch for downstream crate metadata changes
+Patch:          oneshot-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 
 %global _description %{expand:
-Oneshot spsc channel with (potentially) lock-free non-blocking send, and
-a receiver supporting both thread blocking receive operations as well as
-Future based async polling.}
+Oneshot spsc channel.}
 
 %description %{_description}
 
