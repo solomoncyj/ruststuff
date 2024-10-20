@@ -2,23 +2,24 @@
 %bcond_without check
 %global debug_package %{nil}
 
-%global crate linutil_core
+%global crate serial-unix
 
-Name:           rust-linutil_core
-Version:        24.9.28
+Name:           rust-serial-unix
+Version:        0.4.0
 Release:        %autorelease
-Summary:        Backend of Linutil
+Summary:        Serial port implementation for Unix
 
 License:        MIT
-URL:            https://crates.io/crates/linutil_core
+URL:            https://crates.io/crates/serial-unix
 Source:         %{crates_source}
+Source2:        https://raw.githubusercontent.com/tree-sitter/tree-sitter/refs/heads/master/LICENSE
 # Manually created patch for downstream crate metadata changes
-Patch:          linutil_core-fix-metadata.diff
+Patch:          serial-unix-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 
 %global _description %{expand:
-The backend of Linutil.}
+Serial port implementation for Unix.}
 
 %description %{_description}
 
@@ -32,7 +33,8 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-# FIXME: no license files detected
+%license %{crate_instdir}/LICENSE
+%doc %{crate_instdir}/README.md
 %{crate_instdir}/
 
 %package     -n %{name}+default-devel
@@ -49,6 +51,7 @@ use the "default" feature of the "%{crate}" crate.
 
 %prep
 %autosetup -n %{crate}-%{version} -p1
+cp -p %SOURCE2 .
 %cargo_prep
 
 %generate_buildrequires

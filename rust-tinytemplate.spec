@@ -2,23 +2,21 @@
 %bcond_without check
 %global debug_package %{nil}
 
-%global crate linutil_core
+%global crate tinytemplate
 
-Name:           rust-linutil_core
-Version:        24.9.28
+Name:           rust-tinytemplate
+Version:        1.2.1
 Release:        %autorelease
-Summary:        Backend of Linutil
+Summary:        Simple, lightweight template engine
 
-License:        MIT
-URL:            https://crates.io/crates/linutil_core
+License:        Apache-2.0 OR MIT
+URL:            https://crates.io/crates/tinytemplate
 Source:         %{crates_source}
-# Manually created patch for downstream crate metadata changes
-Patch:          linutil_core-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 
 %global _description %{expand:
-The backend of Linutil.}
+Simple, lightweight template engine.}
 
 %description %{_description}
 
@@ -32,7 +30,11 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-# FIXME: no license files detected
+%license %{crate_instdir}/LICENSE-APACHE
+%license %{crate_instdir}/LICENSE-MIT
+%doc %{crate_instdir}/CHANGELOG.md
+%doc %{crate_instdir}/CONTRIBUTING.md
+%doc %{crate_instdir}/README.md
 %{crate_instdir}/
 
 %package     -n %{name}+default-devel

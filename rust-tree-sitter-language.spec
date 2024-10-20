@@ -12,6 +12,7 @@ Summary:        Tree-sitter Language type, used by the library and by language i
 License:        MIT
 URL:            https://crates.io/crates/tree-sitter-language
 Source:         %{crates_source}
+Source2:        https://raw.githubusercontent.com/tree-sitter/tree-sitter/refs/heads/master/LICENSE
 
 BuildRequires:  cargo-rpm-macros >= 24
 
@@ -31,7 +32,6 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-# FIXME: no license files detected
 %{crate_instdir}/
 
 %package     -n %{name}+default-devel
@@ -45,9 +45,10 @@ use the "default" feature of the "%{crate}" crate.
 
 %files       -n %{name}+default-devel
 %ghost %{crate_instdir}/Cargo.toml
-
+%license  LICENSE
 %prep
 %autosetup -n %{crate}-%{version} -p1
+cp -p %SOURCE2 .
 %cargo_prep
 
 %generate_buildrequires

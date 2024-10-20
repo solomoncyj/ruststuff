@@ -2,23 +2,21 @@
 %bcond_without check
 %global debug_package %{nil}
 
-%global crate linutil_core
+%global crate anes
 
-Name:           rust-linutil_core
-Version:        24.9.28
+Name:           rust-anes
+Version:        0.2.0
 Release:        %autorelease
-Summary:        Backend of Linutil
+Summary:        ANSI Escape Sequences provider & parser
 
-License:        MIT
-URL:            https://crates.io/crates/linutil_core
+License:        MIT OR Apache-2.0
+URL:            https://crates.io/crates/anes
 Source:         %{crates_source}
-# Manually created patch for downstream crate metadata changes
-Patch:          linutil_core-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 
 %global _description %{expand:
-The backend of Linutil.}
+ANSI Escape Sequences provider & parser.}
 
 %description %{_description}
 
@@ -32,7 +30,9 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-# FIXME: no license files detected
+%license %{crate_instdir}/LICENSE-APACHE
+%license %{crate_instdir}/LICENSE-MIT
+%doc %{crate_instdir}/README.md
 %{crate_instdir}/
 
 %package     -n %{name}+default-devel
@@ -45,6 +45,30 @@ This package contains library source intended for building other packages which
 use the "default" feature of the "%{crate}" crate.
 
 %files       -n %{name}+default-devel
+%ghost %{crate_instdir}/Cargo.toml
+
+%package     -n %{name}+bitflags-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+bitflags-devel %{_description}
+
+This package contains library source intended for building other packages which
+use the "bitflags" feature of the "%{crate}" crate.
+
+%files       -n %{name}+bitflags-devel
+%ghost %{crate_instdir}/Cargo.toml
+
+%package     -n %{name}+parser-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+parser-devel %{_description}
+
+This package contains library source intended for building other packages which
+use the "parser" feature of the "%{crate}" crate.
+
+%files       -n %{name}+parser-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %prep

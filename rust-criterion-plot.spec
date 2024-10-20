@@ -2,23 +2,22 @@
 %bcond_without check
 %global debug_package %{nil}
 
-%global crate linutil_core
+%global crate criterion-plot
 
-Name:           rust-linutil_core
-Version:        24.9.28
+Name:           rust-criterion-plot
+Version:        0.5.0
 Release:        %autorelease
-Summary:        Backend of Linutil
+Summary:        Criterion's plotting library
 
-License:        MIT
-URL:            https://crates.io/crates/linutil_core
+# Upstream license specification: MIT/Apache-2.0
+License:        MIT OR Apache-2.0
+URL:            https://crates.io/crates/criterion-plot
 Source:         %{crates_source}
-# Manually created patch for downstream crate metadata changes
-Patch:          linutil_core-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 
 %global _description %{expand:
-The backend of Linutil.}
+Criterion's plotting library.}
 
 %description %{_description}
 
@@ -32,7 +31,10 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-# FIXME: no license files detected
+%license %{crate_instdir}/LICENSE-APACHE
+%license %{crate_instdir}/LICENSE-MIT
+%doc %{crate_instdir}/CONTRIBUTING.md
+%doc %{crate_instdir}/README.md
 %{crate_instdir}/
 
 %package     -n %{name}+default-devel

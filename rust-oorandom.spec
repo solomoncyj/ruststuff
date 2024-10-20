@@ -2,23 +2,21 @@
 %bcond_without check
 %global debug_package %{nil}
 
-%global crate linutil_core
+%global crate oorandom
 
-Name:           rust-linutil_core
-Version:        24.9.28
+Name:           rust-oorandom
+Version:        11.1.4
 Release:        %autorelease
-Summary:        Backend of Linutil
+Summary:        Tiny, robust PRNG implementation
 
 License:        MIT
-URL:            https://crates.io/crates/linutil_core
+URL:            https://crates.io/crates/oorandom
 Source:         %{crates_source}
-# Manually created patch for downstream crate metadata changes
-Patch:          linutil_core-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 
 %global _description %{expand:
-The backend of Linutil.}
+A tiny, robust PRNG implementation.}
 
 %description %{_description}
 
@@ -32,7 +30,8 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-# FIXME: no license files detected
+%license %{crate_instdir}/LICENSE-MIT
+%doc %{crate_instdir}/README.md
 %{crate_instdir}/
 
 %package     -n %{name}+default-devel

@@ -5,7 +5,7 @@
 %global crate ioctl-rs
 
 Name:           rust-ioctl-rs
-Version:        0.2.0
+Version:        0.1.6
 Release:        %autorelease
 Summary:        Rust bindings for system ioctls
 

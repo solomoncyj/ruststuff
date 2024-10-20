@@ -1,9 +1,4 @@
 def main [args: string, isdep: bool = false] {
-    # check if package already exsists
-    if (not (dnf search $args| str contains "No matches found.")) {
-        print $"($args) is already in dnf"
-        return null
-    }
     ansi green
     print $"processing ($args)"
     ansi reset
