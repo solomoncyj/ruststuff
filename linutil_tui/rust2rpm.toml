@@ -1,0 +1,9 @@
+[package]
+extra-sources = [
+  { "number" = 2, "file" = "https://raw.githubusercontent.com/ChrisTitusTech/linutil/refs/heads/main/LICENSE" }
+]
+
+[scripts]
+prep.pre = [
+  "cp -p %SOURCE2 .",
+]
