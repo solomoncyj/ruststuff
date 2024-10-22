@@ -13,7 +13,10 @@ License:  ((MIT OR Apache-2.0) AND Unicode-DFS-2016) AND (Apache-2.0 OR Apache-2
 
 URL:            https://github.com/ChrisTitusTech/linutil/
 Source:         https://github.com/ChrisTitusTech/%{name}/archive/refs/tags/%{version}.tar.gz
+# bump version boiunds for ego-tree
 Patch0:         metadata.patch
+#inject docs
+Patch1: https://github.com/ChrisTitusTech/linutil/commit/55b5838cb568fe2e380ba61c123f9caeb9d324be.patch
 BuildRequires:  cargo-rpm-macros >= 24
 BuildRequires:  desktop-file-utils
 
@@ -49,6 +52,8 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications  --set-key=Exec 
 %license LICENSE.dependencies
 %doc README.md
 %doc cargo-lock-merge.txt
+%doc man/*
+
 %{_bindir}/linutil
 %{_datadir}/applications/*.desktop
 

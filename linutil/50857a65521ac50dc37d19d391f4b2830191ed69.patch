@@ -1,0 +1,377 @@
+From 50857a65521ac50dc37d19d391f4b2830191ed69 Mon Sep 17 00:00:00 2001
+From: nnyyxxxx <ethanm112806@gmail.com>
+Date: Thu, 29 Aug 2024 20:59:03 -0400
+Subject: [PATCH] Update docs
+
+---
+ docs/KnownIssues.md      |   5 +++-
+ docs/assets/mainpage.png | Bin 14942 -> 0 bytes
+ docs/contribute.md       |  60 +++++++++++++++++++++++++++++++++++++++
+ docs/index.md            |  21 +++++++++-----
+ docs/userguide.md        |  37 +++++++++++++++++++-----
+ 5 files changed, 108 insertions(+), 15 deletions(-)
+ delete mode 100644 docs/assets/mainpage.png
+
+diff --git a/docs/KnownIssues.md b/docs/KnownIssues.md
+index 7632f0f8..0d12097e 100644
+--- a/docs/KnownIssues.md
++++ b/docs/KnownIssues.md
+@@ -1 +1,4 @@
+-# Known Issues
+\ No newline at end of file
++# Known Issues
++---
++
++- [Known Issues](https://github.com/ChrisTitusTech/linutil/issues)
+diff --git a/docs/assets/mainpage.png b/docs/assets/mainpage.png
+deleted file mode 100644
+index c9c7ec5152e9c89a6aee06ddeec3b5fa7a7440d4..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+HcmV?d00001
+
+literal 14942
+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
+HJ@$VAqLaMT
+
+diff --git a/docs/contribute.md b/docs/contribute.md
+index 2189c3c0..e47f8172 100644
+--- a/docs/contribute.md
++++ b/docs/contribute.md
+@@ -1,2 +1,62 @@
+ # How to Contribute?
+ 
++Thank you for considering contributing to Linutil! We appreciate your effort in helping improve this project. To ensure that your contributions align with the goals and quality standards of Linutil, please follow these guidelines:
++
++## 1. **Install Rust**: 
++
++Make sure you have Rust installed on your machine. You can install it by following the instructions at [rust-lang.org](https://www.rust-lang.org/tools/install).
++
++## 2. **Fork and Clone the repo**
++
++1. Make a fork of the repo in GitHub
++2. Clone the fork
++```bash
++git clone https://github.com/YOUR_USERNAME_HERE/linutil.git
++cd linutil
++   ```
++
++## 3. Make your changes
++- **Edit the files you want to change**: Make your changes to the relevant files.
++- **Test your changes**: Run `cargo run` to test your modifications in a local environment and ensure everything works as expected.
++
++## 4. Understand the existing code
++
++- **Have a clear reason**: Don’t change the way things are done without a valid reason. If you propose an alteration, be prepared to explain why it’s necessary and how it improves the project.
++- **Respect existing conventions**: Changes should align with the existing code style, design patterns, and overall project philosophy. If you want to introduce a new way of doing things, justify it clearly.
++
++## 5. Learn from Past Pull Requests (PRs)
++
++- **Check merged PRs**: Reviewing merged pull requests can give you an idea of what kind of contributions are accepted and how they are implemented.
++- **Study rejected PRs**: This is especially important as it helps you avoid making similar mistakes or proposing changes that have already been considered and declined.
++
++## 6. Write Clean, Descriptive Commit Messages
++
++- **Be descriptive**: Your commit messages should clearly describe what the change does and why it was made.
++- **Use the imperative mood**: For example, "Add feature X" or "Fix bug in Y", rather than "Added feature X" or "Fixed bug in Y".
++- **Keep commits clean**: Avoid committing a change and then immediately following it with a fix for that change. Instead, amend your commit or squash it if needed.
++
++## 7. Keep Your Pull Requests (PRs) Small and Focused
++
++- **Make small, targeted PRs**: Focus on one feature or fix per pull request. This makes it easier to review and increases the likelihood of acceptance.
++- **Avoid combining unrelated changes**: PRs that tackle multiple unrelated issues are harder to review and might be rejected because of a single problem.
++
++## 8. Code Review and Feedback
++
++- **Expect feedback**: PRs will undergo code review. Be open to feedback and willing to make adjustments as needed.
++- **Participate in reviews**: If you feel comfortable, review other contributors' PRs as well. Peer review is a great way to learn and ensure high-quality contributions.
++
++## 9. Contributing Is More Than Just Code
++
++- **Test the tool**: Running tests and providing feedback on how the tool works in different environments is a valuable contribution.
++- **Write well-formed issues**: Clearly describe bugs or problems you encounter, providing as much detail as possible, including steps to reproduce the issue.
++- **Propose reasonable feature requests**: When suggesting new features, ensure they fit within the scope, style, and design of the project. Provide clear reasoning and use cases.
++
++## 10. Documentation
++
++- **Update the documentation**: If your change affects the functionality, please update the relevant documentation files to reflect this.
++
++## 11. License
++
++- **Agree to the license**: By contributing to Linutil, you agree that your contributions will be licensed under the project's MIT license.
++
++We appreciate your contributions and look forward to collaborating with you to make Linutil better!
+diff --git a/docs/index.md b/docs/index.md
+index 91cd803e..2493dc82 100644
+--- a/docs/index.md
++++ b/docs/index.md
+@@ -3,14 +3,21 @@
+ [![Version](https://img.shields.io/github/v/release/ChrisTitusTech/linutil?color=%230567ff&label=Latest%20Release&style=for-the-badge)](https://github.com/ChrisTitusTech/linutil/releases/latest)
+ ![GitHub Downloads (specific asset, all releases)](https://img.shields.io/github/downloads/ChrisTitusTech/linutil/start.sh?label=Total%20Downloads&style=for-the-badge)
+ 
+-## Running latest release of LinUtil
++## Running the latest release of LinUtil
+ 
+-* You will first need to start a Terminal on your linux machine.
+-* Now you will need to run following command:
+-   ```
+-   curl -fsSL https://christitus.com/linux | sh
+-   ```
++To get started, run the following command in your terminal:
++
++### Stable branch
++
++```
++curl -fsSL https://christitus.com/linux | sh
++```
++---
++
++After you've ran the command, you should see a GUI on your screen; It will look something like this:
++
++![preview](assets/preview.png)
+ 
+ !!! info
+ 
+-    LinUtil is updated weekly as of the time of writing. Consequently, features and functionalities may evolve, and the documentation may not always reflect the most current images or information.
+\ No newline at end of file
++    LinUtil is updated weekly as of the time of writing. Consequently, features and functionalities may evolve, and the documentation may not always reflect the most current images or information.
+diff --git a/docs/userguide.md b/docs/userguide.md
+index 15ee5527..8fc385f5 100644
+--- a/docs/userguide.md
++++ b/docs/userguide.md
+@@ -1,9 +1,32 @@
+ # Walkthrough
++---
+ 
+-## How to run LinUtil?
+-Run the following command in a terminal on your Linux System:
+-```
+-curl -fsSL https://christitus.com/linux | sh
+-```
+-Once you have run that command you will see the following GUI show on your screen:
+-![Main Page](assets/mainpage.png)
+\ No newline at end of file
++## System Setup
++
++- **System Update**: Starts a system-wide update.
++- **Compile Setup**: Installs tools and dependencies for compiling software.
++- **Gaming Setup**: Configures Steam, Lutris, etc.
++- **Global Theming**: Sets up and manages global themes.
++- **Remove Snaps**: Removes snap packages.
++
++## Arch Setup
++
++- **Paru Setup**: Installs the Paru AUR helper.
++- **Yay Setup**: Installs the Yay AUR helper.
++- **Server Setup**: Installs Arch Linux.
++
++## Fedora Setup
++
++- **RPM Fusion Setup**: Adds RPM Fusion repositories.
++
++## Applications Setup
++
++- **Alacritty Setup**: Installs and configures Alacritty for you.
++- **DwmTitus Setup**: Sets up the Dwm window manager.
++- **Kitty Setup**: Installs and configures Kitty for you.
++- **Rofi Setup**: Installs the Rofi application/script launcher.
++- **Zsh Setup**: Installs and configures Zsh for you.
++
++## Security Features
++
++- **Firewall Baselines**: Sets up firewall rules.
