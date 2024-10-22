@@ -1,5 +1,5 @@
 diff --git a/Cargo.toml b/Cargo.toml
-index 7d33d10..9a5117f 100644
+index 7d33d10..4c9b19a 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
 @@ -3,7 +3,7 @@ license = "MIT"
@@ -7,8 +7,7 @@ index 7d33d10..9a5117f 100644
  
  [workspace.dependencies]
 -ego-tree = "0.6.2"
-+ego-tree = ">=0.6.2, <0.10"
++ego-tree = "0.6.2 - 0.9"
  
  [workspace]
  members = ["tui", "core"]
-
