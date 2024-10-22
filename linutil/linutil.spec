@@ -4,18 +4,18 @@
 %global crate linutil
 
 Name:           linutil
-Version:        2024.09.28~0
-Release:        0
+Version:        2024.09.28
+Release:        %autorelease
 Summary:        Linutil is a toolbox designed to simplify everyday Linux tasks
 
 SourceLicense:  MIT
 License:  ((MIT OR Apache-2.0) AND Unicode-DFS-2016) AND (Apache-2.0 OR Apache-2.0 WITH LLVM-exception OR MIT) AND (Apache-2.0 OR BSD-2-Clause OR MIT) AND (Apache-2.0 OR BSL-1.0) AND (Apache-2.0 OR MIT) AND (ISC) AND (MIT)
 URL:            https://github.com/ChrisTitusTech/linutil
-Source:         %{name}-%{version}.tar.zst
-Source1:        vendor.tar.zst
+Source:         https://github.com/ChrisTitusTech/linutil/archive/refs/tags/%{version}.tar.gz
+# make ego-tree more permissive
+Patch0:         metadata.patch
 
-BuildRequires:  cargo-packaging
-BuildRequires:  cargo
+BuildRequires:  cargo-rpm-macros >= 24
 BuildRequires: desktop-file-utils
 
 %global _description %{expand:
@@ -33,15 +33,20 @@ designed to simplify everyday Linux tasks.}
 %{buildroot}%{_datadir}/applications/*.desktop
 
 %prep
-%autosetup -p1 -a1
-#prevent desktop-file-install from screaming
+%autosetup -n %{name}-%{version} -p1
+%cargo_prep
+
+%generate_buildrequires
+%cargo_generate_buildrequires
 
 %build
-%{cargo_build} --all
+%cargo_build
+%{cargo_license_summary}
+%{cargo_license} > LICENSE.dependencies
 
 %install
-%{cargo_install -p tui}
-desktop-file-install --dir=%{buildroot}%{_datadir}/applications  --set-key=Exec  --set-value=/usr/bin/linutil  ./linutil.desktop
+%cargo_install
+desktop-file-install --dir=%{buildroot}%{_datadir}/applications ./linutil.desktop
 
 %if %{with check}
 %check
@@ -49,4 +54,4 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications  --set-key=Exec 
 %endif
 
 %changelog
-
+%autochangelog

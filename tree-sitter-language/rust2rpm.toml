@@ -1,0 +1,9 @@
+[package]
+extra-sources = [
+  { "number" = 2, "file" = "https://raw.githubusercontent.com/tree-sitter/tree-sitter/refs/heads/master/LICENSE" }
+]
+
+[scripts]
+prep.pre = [
+  "cp -p %SOURCE2 .",
+]

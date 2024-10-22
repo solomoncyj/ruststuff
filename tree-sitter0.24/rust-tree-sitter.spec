@@ -2,23 +2,21 @@
 %bcond_with check
 %global debug_package %{nil}
 
-%global crate tui-term
+%global crate tree-sitter
 
-Name:           rust-tui-term
-Version:        0.1.13
+Name:           rust-tree-sitter
+Version:        0.24.3
 Release:        %autorelease
-Summary:        Pseudoterminal widget for ratatui
+Summary:        Rust bindings to the Tree-sitter parsing library
 
 License:        MIT
-URL:            https://crates.io/crates/tui-term
+URL:            https://crates.io/crates/tree-sitter
 Source:         %{crates_source}
-# Manually created patch for downstream crate metadata changes
-Patch:          tui-term-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 
 %global _description %{expand:
-A pseudoterminal widget for ratatui.}
+Rust bindings to the Tree-sitter parsing library.}
 
 %description %{_description}
 
@@ -32,9 +30,7 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-%license %{crate_instdir}/LICENSE
-%doc %{crate_instdir}/CHANGELOG.md
-%doc %{crate_instdir}/README.md
+%license %{crate_instdir}/src/unicode/LICENSE
 %{crate_instdir}/
 
 %package     -n %{name}+default-devel
@@ -49,28 +45,52 @@ use the "default" feature of the "%{crate}" crate.
 %files       -n %{name}+default-devel
 %ghost %{crate_instdir}/Cargo.toml
 
-%package     -n %{name}+unstable-devel
+%package     -n %{name}+bindgen-devel
 Summary:        %{summary}
 BuildArch:      noarch
 
-%description -n %{name}+unstable-devel %{_description}
+%description -n %{name}+bindgen-devel %{_description}
 
 This package contains library source intended for building other packages which
-use the "unstable" feature of the "%{crate}" crate.
+use the "bindgen" feature of the "%{crate}" crate.
 
-%files       -n %{name}+unstable-devel
+%files       -n %{name}+bindgen-devel
 %ghost %{crate_instdir}/Cargo.toml
 
-%package     -n %{name}+vt100-devel
+%package     -n %{name}+std-devel
 Summary:        %{summary}
 BuildArch:      noarch
 
-%description -n %{name}+vt100-devel %{_description}
+%description -n %{name}+std-devel %{_description}
 
 This package contains library source intended for building other packages which
-use the "vt100" feature of the "%{crate}" crate.
+use the "std" feature of the "%{crate}" crate.
 
-%files       -n %{name}+vt100-devel
+%files       -n %{name}+std-devel
+%ghost %{crate_instdir}/Cargo.toml
+
+%package     -n %{name}+wasm-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+wasm-devel %{_description}
+
+This package contains library source intended for building other packages which
+use the "wasm" feature of the "%{crate}" crate.
+
+%files       -n %{name}+wasm-devel
+%ghost %{crate_instdir}/Cargo.toml
+
+%package     -n %{name}+wasmtime-c-api-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+wasmtime-c-api-devel %{_description}
+
+This package contains library source intended for building other packages which
+use the "wasmtime-c-api" feature of the "%{crate}" crate.
+
+%files       -n %{name}+wasmtime-c-api-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %prep

@@ -11,7 +11,9 @@ Summary:        Spsc channel
 
 License:        MIT OR Apache-2.0
 URL:            https://crates.io/crates/oneshot
-Source:         %{crates_source}
+Source0:         %{crates_source}
+Source1:    https://raw.githubusercontent.com/faern/oneshot/refs/heads/main/LICENSE-APACHE
+Source2:    https://raw.githubusercontent.com/faern/oneshot/refs/heads/main/LICENSE-MIT
 # Automatically generated patch to strip dependencies and normalize metadata
 Patch:          oneshot-fix-metadata-auto.diff
 # Manually created patch for downstream crate metadata changes
@@ -34,7 +36,7 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-# FIXME: no license files detected
+%license  LICENSE-MIT LICENSE-APACHE
 %doc %{crate_instdir}/CHANGELOG.md
 %doc %{crate_instdir}/README.md
 %{crate_instdir}/
@@ -77,6 +79,8 @@ use the "std" feature of the "%{crate}" crate.
 
 %prep
 %autosetup -n %{crate}-%{version} -p1
+cp -p %SOURCE1 .
+cp -p %SOURCE2 .
 %cargo_prep
 
 %generate_buildrequires

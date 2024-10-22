@@ -2,23 +2,21 @@
 %bcond_with check
 %global debug_package %{nil}
 
-%global crate tui-term
+%global crate tree-sitter-highlight
 
-Name:           rust-tui-term
-Version:        0.1.13
+Name:           rust-tree-sitter-highlight
+Version:        0.23.2
 Release:        %autorelease
-Summary:        Pseudoterminal widget for ratatui
+Summary:        Library for performing syntax highlighting with Tree-sitter
 
 License:        MIT
-URL:            https://crates.io/crates/tui-term
+URL:            https://crates.io/crates/tree-sitter-highlight
 Source:         %{crates_source}
-# Manually created patch for downstream crate metadata changes
-Patch:          tui-term-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 
 %global _description %{expand:
-A pseudoterminal widget for ratatui.}
+Library for performing syntax highlighting with Tree-sitter.}
 
 %description %{_description}
 
@@ -32,8 +30,7 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-%license %{crate_instdir}/LICENSE
-%doc %{crate_instdir}/CHANGELOG.md
+# FIXME: no license files detected
 %doc %{crate_instdir}/README.md
 %{crate_instdir}/
 
@@ -47,30 +44,6 @@ This package contains library source intended for building other packages which
 use the "default" feature of the "%{crate}" crate.
 
 %files       -n %{name}+default-devel
-%ghost %{crate_instdir}/Cargo.toml
-
-%package     -n %{name}+unstable-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+unstable-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "unstable" feature of the "%{crate}" crate.
-
-%files       -n %{name}+unstable-devel
-%ghost %{crate_instdir}/Cargo.toml
-
-%package     -n %{name}+vt100-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+vt100-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "vt100" feature of the "%{crate}" crate.
-
-%files       -n %{name}+vt100-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %prep

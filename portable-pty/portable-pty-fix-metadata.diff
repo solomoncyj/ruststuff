@@ -1,20 +1,22 @@
 --- portable-pty-0.8.1/Cargo.toml	1970-01-01T00:00:01+00:00
-+++ portable-pty-0.8.1/Cargo.toml	2024-10-20T13:50:19.768925+00:00
-@@ -36,7 +36,7 @@
++++ portable-pty-0.8.1/Cargo.toml	2024-10-20T14:32:34.435918+00:00
+@@ -36,8 +36,8 @@
  version = "0.4"
  
  [dependencies.nix]
 -version = "0.25"
-+version = ">= 0.25"
- features = ["term"]
+-features = ["term"]
++version = "0.26"
++features = ["term", "fs"]
  
  [dependencies.serde]
+ version = "1.0"
 @@ -57,7 +57,7 @@
  version = "0.3"
  
  [dev-dependencies.smol]
 -version = "1.2"
-+version = ">= 1.2"
++version = "2"
  
  [features]
  default = []
