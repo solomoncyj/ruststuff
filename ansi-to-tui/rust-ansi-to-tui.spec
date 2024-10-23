@@ -7,18 +7,18 @@
 Name:           rust-ansi-to-tui
 Version:        6.0.0
 Release:        %autorelease
-Summary:        Library to convert ansi color coded text
+Summary:        Library to convert ansi color coded text into ratatui::text::Text type from ratatui library
 
 License:        MIT
 URL:            https://crates.io/crates/ansi-to-tui
 Source:         %{crates_source}
-# Manually created patch for downstream crate metadata changes
-Patch:          ansi-to-tui-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
+BuildRequires:  tomcli
 
 %global _description %{expand:
-A library to convert ansi color coded text.}
+A library to convert ansi color coded text into ratatui::text::Text type
+from ratatui library.}
 
 %description %{_description}
 
@@ -76,6 +76,10 @@ use the "zero-copy" feature of the "%{crate}" crate.
 %prep
 %autosetup -n %{crate}-%{version} -p1
 %cargo_prep
+# Do not depend on criterion; it eeded only for benchmarks.
+tomcli set Cargo.toml del dev-dependencies.criterion
+# remove benches and nix files
+rm -rf "flake.*" "benches/"
 
 %generate_buildrequires
 %cargo_generate_buildrequires
