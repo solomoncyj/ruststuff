@@ -12,7 +12,7 @@ Summary:        Tree-sitter Language type, used by the library and by language i
 License:        MIT
 URL:            https://crates.io/crates/tree-sitter-language
 Source:         %{crates_source}
-Source2:        https://raw.githubusercontent.com/tree-sitter/tree-sitter/refs/heads/master/LICENSE
+Source2:        https://raw.githubusercontent.com/tree-sitter/tree-sitter/refs/tags/v0.24.3/LICENSE
 
 BuildRequires:  cargo-rpm-macros >= 24
 
