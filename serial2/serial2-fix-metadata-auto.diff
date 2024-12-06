@@ -1,0 +1,19 @@
+--- serial2-0.2.28/Cargo.toml	1970-01-01T00:00:01+00:00
++++ serial2-0.2.28/Cargo.toml	2024-12-06T02:48:36.869875+00:00
+@@ -102,16 +102,3 @@
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2.109"
+ 
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3.9"
+-features = [
+-    "commapi",
+-    "fileapi",
+-    "handleapi",
+-    "ioapiset",
+-    "std",
+-    "synchapi",
+-    "winbase",
+-    "winerror",
+-    "winreg",
+-]
