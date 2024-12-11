@@ -2,24 +2,21 @@
 %bcond check 1
 %global debug_package %{nil}
 
-%global crate tree-sitter-bash
+%global crate vt100-ctt
 
-Name:           rust-tree-sitter-bash
-Version:        0.23.3
+Name:           rust-vt100-ctt
+Version:        0.16.0
 Release:        %autorelease
-Summary:        Bash grammar for tree-sitter
+Summary:        Library for parsing terminal data - up-to-date version
 
 License:        MIT
-URL:            https://crates.io/crates/tree-sitter-bash
+URL:            https://crates.io/crates/vt100-ctt
 Source:         %{crates_source}
-Source2:         https://raw.githubusercontent.com/tree-sitter/tree-sitter-bash/refs/tags/v%{version}/LICENSE
-# Manually created patch for downstream crate metadata changes
-Patch:          tree-sitter-bash-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 
 %global _description %{expand:
-Bash grammar for tree-sitter.}
+Library for parsing terminal data - up-to-date version.}
 
 %description %{_description}
 
@@ -33,7 +30,8 @@ This package contains library source intended for building other packages which
 use the "%{crate}" crate.
 
 %files          devel
-%license LICENSE
+%license %{crate_instdir}/LICENSE
+%doc %{crate_instdir}/CHANGELOG.md
 %doc %{crate_instdir}/README.md
 %{crate_instdir}/
 
@@ -49,9 +47,20 @@ use the "default" feature of the "%{crate}" crate.
 %files       -n %{name}+default-devel
 %ghost %{crate_instdir}/Cargo.toml
 
+%package     -n %{name}+tui-term-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+tui-term-devel %{_description}
+
+This package contains library source intended for building other packages which
+use the "tui-term" feature of the "%{crate}" crate.
+
+%files       -n %{name}+tui-term-devel
+%ghost %{crate_instdir}/Cargo.toml
+
 %prep
 %autosetup -n %{crate}-%{version} -p1
-cp -pav %{SOURCE2} .
 %cargo_prep
 
 %generate_buildrequires
