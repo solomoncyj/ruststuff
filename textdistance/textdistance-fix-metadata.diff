@@ -1,6 +1,6 @@
 --- textdistance-1.1.1/Cargo.toml	1970-01-01T00:00:01+00:00
-+++ textdistance-1.1.1/Cargo.toml	2025-04-15T04:10:44.114342+00:00
-@@ -58,8 +58,6 @@
++++ textdistance-1.1.1/Cargo.toml	2025-04-15T04:19:28.694934+00:00
+@@ -58,14 +58,12 @@
  [dev-dependencies.assert2]
  version = "0.3.15"
  
@@ -9,3 +9,10 @@
  
  [dev-dependencies.proptest]
  version = "1.1.0"
+ 
+ [dev-dependencies.rstest]
+-version = "0.22.0"
++version = ">=0.22.0, <0.24.0 "
+ 
+ [dev-dependencies.unicode-segmentation]
+ version = "1.10.1"

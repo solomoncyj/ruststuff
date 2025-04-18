@@ -1,0 +1,13 @@
+[package]
+license-files = [
+  "LICENSE.MIT",
+  "LICENSE.APACHE"
+]
+
+[[package.extra-patches]]
+number = 2
+file =   "https://patch-diff.githubusercontent.com/raw/A1-Triard/errno-sys/pull/1.diff"
+comments = [
+  "include license file",
+]
+
