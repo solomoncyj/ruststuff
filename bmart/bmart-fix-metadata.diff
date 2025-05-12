@@ -1,0 +1,12 @@
+--- bmart-0.2.11/Cargo.toml	1970-01-01T00:00:01+00:00
++++ bmart-0.2.11/Cargo.toml	2025-05-07T05:46:39.662082+00:00
+@@ -28,7 +28,8 @@
+     "workers",
+     "tools",
+ ]
+-license = "Apache-2.0"
++license = "MIT"
++license-file = "LICENSE"
+ 
+ [lib]
+ name = "bmart"

@@ -1,0 +1,10 @@
+--- gl-0.14.0/Cargo.toml	1970-01-01T00:00:00+00:00
++++ gl-0.14.0/Cargo.toml	2025-05-09T08:35:13.724963+00:00
+@@ -23,7 +23,5 @@
+ categories = ["api-bindings", "rendering::graphics-api"]
+ license = "Apache-2.0"
+ repository = "https://github.com/brendanzab/gl-rs/"
+-[dev-dependencies.glutin]
+-version = "0.21.0"
+ [build-dependencies.gl_generator]
+ version = "0.14.0"

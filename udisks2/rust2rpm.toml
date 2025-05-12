@@ -1,0 +1,6 @@
+[scripts]
+prep.post = ["""\
+# remove problmeatic "include_str"
+sed -i '1d' ./src/lib.rs
+"]
+

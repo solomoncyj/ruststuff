@@ -1,0 +1,19 @@
+--- khronos-egl-6.0.0/Cargo.toml	1970-01-01T00:00:01+00:00
++++ khronos-egl-6.0.0/Cargo.toml	2025-05-06T07:23:48.510036+00:00
+@@ -56,13 +56,13 @@
+ version = "^0.14"
+ 
+ [dev-dependencies.wayland-client]
+-version = "^0.28"
++version = ">=0.28, <0.33"
+ 
+ [dev-dependencies.wayland-egl]
+-version = "^0.28"
++version = ">=0.28, <0.33"
+ 
+ [dev-dependencies.wayland-protocols]
+-version = "^0.28"
++version = ">=0.28, <0.33"
+ features = ["client"]
+ 
+ [build-dependencies.pkg-config]

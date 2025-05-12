@@ -1,0 +1,12 @@
+--- bmart-0.2.12/Cargo.toml	1970-01-01T00:00:01+00:00
++++ bmart-0.2.12/Cargo.toml	2025-05-09T09:37:42.648360+00:00
+@@ -62,9 +62,3 @@
+ version = "0.8"
+ features = ["v4"]
+ 
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3.6"
+-features = [
+-    "psapi",
+-    "shellapi",
+-]

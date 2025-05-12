@@ -1,0 +1,11 @@
+--- virtual-terminal-0.1.4/Cargo.toml	1970-01-01T00:00:01+00:00
++++ virtual-terminal-0.1.4/Cargo.toml	2025-05-07T05:34:37.011768+00:00
+@@ -51,7 +51,7 @@
+ version = "1.0"
+ 
+ [dependencies.rustix-openpty]
+-version = "0.2"
++version = ">=0.1, <0.3"
+ 
+ [dependencies.serde]
+ version = "1.0"
