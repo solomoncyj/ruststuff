@@ -4,6 +4,10 @@ license-files = [
   "LICENSE",
 ]
 
+cargo-toml-patch-comments = [
+"patch feature flags and add pkg config dep"
+]
+
 [[package.extra-sources]]
 number = 1
 file = "https://github.com/Smithay/gbm.rs/raw/refs/heads/master/LICENSE"
@@ -11,7 +15,24 @@ comments = [
   "include license file",
 ]
 
+
+[[package.extra-patches]]
+number = 1
+file = "52-ds.diff"
+comments = [
+  "make bindgen unconditinal",
+  "use system gbm",
+  "https://github.com/Smithay/gbm.rs/pull/52"
+]
+
+
+[requires]
+build = [
+"mesa-libgbm-devel"
+]
+
 [scripts]
 prep.post = ["""\
 # copy in license file
-cp -p %{SOURCE1} ."""]
+cp -p %{SOURCE1} .
+"""]

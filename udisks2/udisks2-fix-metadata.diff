@@ -1,0 +1,11 @@
+--- udisks2-0.3.1/Cargo.toml	1970-01-01T00:00:01+00:00
++++ udisks2-0.3.1/Cargo.toml	2025-05-20T12:36:21.847359+00:00
+@@ -33,7 +33,7 @@
+     "hardware-support",
+     "os::linux-apis",
+ ]
+-license = "LGPL-2.1"
++license = "LGPL-2.0-or-later"
+ repository = "https://github.com/FineFindus/udisks-rs"
+ 
+ [lib]

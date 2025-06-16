@@ -1,0 +1,27 @@
+--- gbm-sys-0.4.0/Cargo.toml	1970-01-01T00:00:01+00:00
++++ gbm-sys-0.4.0/Cargo.toml	2025-05-20T12:56:54.535185+00:00
+@@ -40,20 +40,10 @@
+ 
+ [build-dependencies.bindgen]
+ version = "0.69"
+-optional = true
+ 
+-[build-dependencies.proc-macro2]
+-version = "1.0.69"
+-optional = true
+-
+-[build-dependencies.regex]
+-version = "1.10"
+-optional = true
++[build-dependencies.pkg-config]
++version = "0.3.32"
+ 
+ [features]
+-update_bindings = ["use_bindgen"]
+-use_bindgen = [
+-    "bindgen",
+-    "dep:proc-macro2",
+-    "dep:regex",
+-]
++update_bindings = []
++use_bindgen = []

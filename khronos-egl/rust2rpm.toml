@@ -1,0 +1,7 @@
+[package]
+cargo-toml-patch-comments = [
+    "bump versions of wayland -* to versions in fedora",
+    "patch out gl and tests relying on it",
+    "https://github.com/timothee-haudebourg/khronos-egl/pull/32"
+]
+

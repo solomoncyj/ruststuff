@@ -13,11 +13,8 @@ License:        MIT
 URL:            https://crates.io/crates/bmart-derive
 Source:         %{crates_source}
 # * include license file
-# * https://github.com/roboplc/virtual-terminal/issues/1
-Source1:        https://github.com/roboplc/virtual-terminal/raw/refs/heads/main/LICENSE
-# Manually created patch for downstream crate metadata changes
-# * include LICENSE
-Patch:          bmart-derive-fix-metadata.diff
+# * https://github.com/eva-ics/bmart/pull/1
+Source1:        https://github.com/eva-ics/bmart/raw/2d8447ea8731fb933bb1d94d6df0c099ff28f5bd/LICENSE
 
 BuildRequires:  cargo-rpm-macros >= 24
 

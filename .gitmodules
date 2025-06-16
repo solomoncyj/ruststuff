@@ -1,0 +1,3 @@
+[submodule "rust-error-code"]
+	path = rust-error-code
+	url = https://src.fedoraproject.org/rpms/rust-error-code.git

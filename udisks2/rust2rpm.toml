@@ -1,6 +1,20 @@
+[package]
+cargo-toml-patch-comments = [
+"edit licence in cargo.toml that the upstream patch file cant edit due to crates.io ormalisation"
+]
+[[package.extra-patches]]
+number = 1
+file = "https://github.com/FineFindus/udisks-rs/commit/6359a37560f3bbeaab2b8d79ddec245cad9ec08b.diff"
+comments = [
+  "Switches the license from LGPL-2.1-or-later to LGPL-2.0-or-later, following UDisks licensing.",
+]
+
 [scripts]
 prep.post = ["""\
 # remove problmeatic "include_str"
+# as it causes doctests to fail
+# https://github.com/FineFindus/udisks-rs/issues/9
 sed -i '1d' ./src/lib.rs
-"]
+"""
+]
 

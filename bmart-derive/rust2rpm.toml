@@ -1,17 +1,14 @@
 [package]
-cargo-toml-patch-comments = [
-  "include LICENSE",
-]
 license-files = [
   "LICENSE",
 ]
 
 [[package.extra-sources]]
 number = 1
-file = "https://github.com/roboplc/virtual-terminal/raw/refs/heads/main/LICENSE"
+file = "https://github.com/eva-ics/bmart/raw/2d8447ea8731fb933bb1d94d6df0c099ff28f5bd/LICENSE"
 comments = [
   "include license file",
-  "https://github.com/roboplc/virtual-terminal/issues/1",
+  "https://github.com/eva-ics/bmart/pull/1"
 ]
 
 [scripts]

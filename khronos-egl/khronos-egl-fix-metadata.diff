@@ -1,7 +1,32 @@
 --- khronos-egl-6.0.0/Cargo.toml	1970-01-01T00:00:01+00:00
-+++ khronos-egl-6.0.0/Cargo.toml	2025-05-06T07:23:48.510036+00:00
-@@ -56,13 +56,13 @@
- version = "^0.14"
++++ khronos-egl-6.0.0/Cargo.toml	2025-05-17T03:19:30.335467+00:00
+@@ -30,20 +30,6 @@
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/timothee-haudebourg/khronos-egl"
+ 
+-[[example]]
+-name = "wayland-static"
+-required-features = ["static"]
+-
+-[[example]]
+-name = "wayland-dynamic"
+-required-features = ["dynamic"]
+-
+-[[example]]
+-name = "load-minimal"
+-required-features = [
+-    "dynamic",
+-    "1_4",
+-]
+ 
+ [dependencies.libc]
+ version = "^0.2"
+@@ -52,17 +38,15 @@
+ version = "^0.8"
+ optional = true
+ 
+-[dev-dependencies.gl]
+-version = "^0.14"
  
  [dev-dependencies.wayland-client]
 -version = "^0.28"

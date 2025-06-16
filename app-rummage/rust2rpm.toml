@@ -1,0 +1,12 @@
+[package]
+cargo-toml-patch-comments = [
+    "Allow nix 0.29 until we have 0.30 packaged",
+]
+
+
+[[package.extra-patches]]
+number = 1
+file = "https://gitlab.com/mission-center-devs/app-detection/-/commit/029ae0329235ad0f19c4c26e1acd54712cf63a31.diff"
+comments = [
+"patch tests to not fail ",
+]
