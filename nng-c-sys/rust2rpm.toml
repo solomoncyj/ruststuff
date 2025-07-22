@@ -1,0 +1,33 @@
+[requires]
+build = [
+    "nng-devel",
+]
+lib = [
+    "nng-devel",
+]
+
+[package]
+cargo-toml-patch-comments = [
+    "Add bindgen dependency unconditionally.",
+    "Remove dependency on cmake.",
+]
+
+[[package.extra-patches]]
+number = 2
+file = "rust-nng-c-sys-Use_system_nng.patch"
+comments = [
+    "Link to system nng",
+]
+
+[[package.extra-patches]]
+number = 3
+file = "rust-nng-c-sys-Fix_test_issues.patch"
+comments = [
+    "Fix some test issues due to different nng version?",
+]
+
+[scripts]
+prep.post = [
+    "# Remove bundled nng and mbedtls",
+    "rm -rf nng mbedtls-*",
+]

@@ -12,8 +12,17 @@ Summary:        Bindings nng C library
 License:        BSL-1.0
 URL:            https://crates.io/crates/nng-c-sys
 Source:         %{crates_source}
+# Manually created patch for downstream crate metadata changes
+# * Add bindgen dependency unconditionally.
+# * Remove dependency on cmake.
+Patch:          nng-c-sys-fix-metadata.diff
+# * Link to system nng
+Patch2:         rust-nng-c-sys-Use_system_nng.patch
+# * Fix some test issues due to different nng version?
+Patch3:         rust-nng-c-sys-Fix_test_issues.patch
 
 BuildRequires:  cargo-rpm-macros >= 24
+BuildRequires:  nng-devel
 
 %global _description %{expand:
 Bindings nng C library.}
@@ -23,6 +32,7 @@ Bindings nng C library.}
 %package        devel
 Summary:        %{summary}
 BuildArch:      noarch
+Requires:       nng-devel
 
 %description    devel %{_description}
 
@@ -46,18 +56,6 @@ This package contains library source intended for building other packages which
 use the "default" feature of the "%{crate}" crate.
 
 %files       -n %{name}+default-devel
-%ghost %{crate_instdir}/Cargo.toml
-
-%package     -n %{name}+bindgen-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+bindgen-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "bindgen" feature of the "%{crate}" crate.
-
-%files       -n %{name}+bindgen-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %package     -n %{name}+build-bindgen-devel
@@ -123,6 +121,8 @@ use the "websocket" feature of the "%{crate}" crate.
 %prep
 %autosetup -n %{crate}-%{version} -p1
 %cargo_prep
+# Remove bundled nng and mbedtls
+rm -rf nng mbedtls-*
 
 %generate_buildrequires
 %cargo_generate_buildrequires

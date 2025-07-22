@@ -1,0 +1,19 @@
+diff -ru nng-c-sys-1.10.1/tests/features.rs nng-c-sys-1.10.1-new/tests/features.rs
+--- nng-c-sys-1.10.1/tests/features.rs	2006-07-24 03:21:28.000000000 +0200
++++ nng-c-sys-1.10.1-new/tests/features.rs	2025-07-21 17:48:40.713570935 +0200
+@@ -1,5 +1,6 @@
+ use core::ffi::CStr;
+ use core::ptr;
++use std::convert::TryInto;
+ 
+ use nng_c_sys::nng_http_req_alloc;
+ use nng_c_sys::nng_tls_engine_name;
+@@ -22,7 +23,7 @@
+     let mut req = ptr::null_mut();
+     let result = unsafe { nng_http_req_alloc(&mut req, ptr::null()) };
+     #[cfg(not(feature = "http"))]
+-    assert_eq!(result, nng_c_sys::nng_errno_enum::NNG_ENOTSUP);
++    assert_eq!(result, nng_c_sys::nng_errno_enum::NNG_ENOTSUP.try_into().unwrap());
+     #[cfg(feature = "http")]
+     {
+         assert_eq!(result, 0);
